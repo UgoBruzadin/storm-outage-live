@@ -2,7 +2,7 @@ name: Hourly forecast
 
 on:
   schedule:
-    - cron: "20 * * * *"          # :20 past each hour (the newest HRRR run is ~2 h behind; this gives it time)
+    - cron: "20 * * * *"          # every hour at :20 (the newest HRRR run is ~2 h behind; this gives it time)
   workflow_dispatch:
 
 permissions:
