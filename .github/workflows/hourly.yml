@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: UgoBruzadin/storm-outage-risk
-          ref: live-v1
+          ref: live-v1.1
           path: code
           sparse-checkout: |
             live

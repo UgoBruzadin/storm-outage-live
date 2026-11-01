@@ -20,7 +20,7 @@ https://ugobruzadin.github.io/storm-outage-risk/
 
 Each forecast is committed when it is made, so the commit history shows it existed before the weather it
 forecasts. The job runs the code at tag
-[`live-v1`](https://github.com/UgoBruzadin/storm-outage-risk/tree/live-v1/live) of storm-outage-risk: the model
+[`live-v1.1`](https://github.com/UgoBruzadin/storm-outage-risk/tree/live-v1.1/live) of storm-outage-risk: the model
 can't change while it is being tested.
 
 ## The blind test
