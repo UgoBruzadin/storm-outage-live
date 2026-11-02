@@ -25,6 +25,7 @@ jobs:
         id: hour
         run: |
           echo "hour=$(date -u +%Y-%m-%dT%H)" >> "$GITHUB_OUTPUT"
+          echo "path=$(date -u +%Y/%m/%d/%H)" >> "$GITHUB_OUTPUT"
           if [ -e "predictions/$(date -u +%Y/%m/%d/%H).parquet" ]; then
             echo "This hour's forecast is already saved."
           elif [ "${{ github.event_name }}" = schedule ] && [ "$(date -u +%-M)" -lt 15 ]; then
@@ -67,7 +68,9 @@ jobs:
         run: |
           git config user.name "storm-outage-live bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add latest.json predictions inputs
+          mkdir -p "hours/$(dirname "${{ steps.hour.outputs.path }}")"
+          cp latest.json "hours/${{ steps.hour.outputs.path }}.json"      # the story page's past 12 hours
+          git add latest.json hours predictions inputs
           git diff --cached --quiet && exit 0
           git commit -q -m "Forecast $(python -c 'import json; print(json.load(open("latest.json"))["decision_hour"])')"
           for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done

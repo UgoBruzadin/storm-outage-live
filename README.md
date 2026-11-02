@@ -15,6 +15,7 @@ https://ugobruzadin.github.io/storm-outage-risk/
 | Path | What |
 |---|---|
 | `latest.json` | The newest hour: decision time, the 6-hour window, the forecast runs used, and per county `[fips, chance, low, high, alert]` |
+| `hours/YYYY/MM/DD/HH.json` | A copy of `latest.json` for every hour, for the story page's map of the past 12 hours |
 | `predictions/YYYY/MM/DD/HH.parquet` | Every hour's forecast, one row per county |
 | `inputs/YYYY/MM/DD/HH.csv.gz` | The inputs behind it (shakedown period only; rebuildable from the public archives) |
 
