@@ -2,7 +2,9 @@ name: Hourly forecast
 
 on:
   schedule:
-    - cron: "20 * * * *"          # every hour at :20 (the newest HRRR run is ~2 h behind; this gives it time)
+    # GitHub drops many scheduled runs, so each hour gets several chances (from :20: the newest HRRR run is ~2 h behind).
+    # The first forecast saved for an hour stands.
+    - cron: "20,27,34,41,48,55 * * * *"
   workflow_dispatch:
 
 permissions:
