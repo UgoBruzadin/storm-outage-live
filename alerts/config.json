@@ -1,0 +1,29 @@
+{
+  "quiet_hours": 6,
+  "feed_items": 20,
+  "link": "https://ugobruzadin.github.io/storm-outage-risk/",
+  "disclaimer": "Experimental research forecast, not from your utility or the National Weather Service.",
+  "ntfy": {
+    "enabled": false,
+    "server": "https://ntfy.sh",
+    "topic": "storm-outage-{region}"
+  },
+  "levels": {
+    "2026-11-01T18:17Z": [
+      {
+        "label": "Elevated",
+        "chance": 0.083,
+        "priority": 3,
+        "meaning": "About 9 alerts a year per county; in 2025 about 1 in 5 was followed by an outage.",
+        "derivation": "MO + IL frozen model (live-v1.1): the cut-off giving the alerts per county-year (9.1) that the USA live model gives MO + IL at 0.10 (ml/alert_counts.py, 2025, held out)"
+      },
+      {
+        "label": "High",
+        "chance": 0.170,
+        "priority": 4,
+        "meaning": "About 4 to 5 alerts a year per county; in 2025 more than 1 in 4 was followed by an outage.",
+        "derivation": "as above, at 4.5 alerts per county-year (the USA live model at 0.20)"
+      }
+    ]
+  }
+}
